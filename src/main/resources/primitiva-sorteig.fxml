@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SorteigController">
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <ImageView fx:id="sorteig_title" fitHeight="100.0" fitWidth="376.0" layoutX="132.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@imatges/sorteig_title.png" />
+        </ImageView>
+      <ImageView fx:id="realitzarSorteigBtn" fitHeight="119.0" fitWidth="396.0" layoutX="122.0" layoutY="378.0" onMouseClicked="#realitzarSorteig" pickOnBounds="true" preserveRatio="true" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@imatges/realitzarSorteig_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="returnMenuBtn" fitHeight="57.0" fitWidth="67.0" layoutX="14.0" layoutY="409.0" onMouseClicked="#tornarMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imatges/returnMenu_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+        <Label fx:id="opcio_label" layoutX="156.0" layoutY="110.0" text="Selecciona una opció:">
+            <font>
+                <Font name="Roboto Light" size="14.0" />
+            </font>
+        </Label>
+        <MenuButton fx:id="triarOpcio" layoutX="303.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="Opcions">
+            <items>
+                <MenuItem fx:id="crearSorteig_item" mnemonicParsing="false" onAction="#triarCrearSorteig" text="Crear Sorteig" />
+                <MenuItem fx:id="sorteigsActius_item" mnemonicParsing="false" onAction="#triarSorteigsActius" text="Consultar Sorteigs Actius" />
+                <MenuItem fx:id="cobrarSorteig_item" mnemonicParsing="false" onAction="#triarSorteigCobrat" text="Sorteigs Cobrats S/N" />
+            <MenuItem fx:id="realitzarSorteig_item" mnemonicParsing="false" onAction="#triarRealitzarSorteig" text="Realitzar Sorteig" />
+            <MenuItem fx:id="consultarEstadistiques_item" mnemonicParsing="false" onAction="#triarEstadistiques" text="Consultar Estadístiques" />
+            </items>
+            <font>
+                <Font name="Roboto Light" size="14.0" />
+            </font>
+        </MenuButton>
+      <ListView fx:id="sorteigsActius_list" layoutX="194.0" layoutY="150.0" prefHeight="300.0" prefWidth="252.0" visible="false" />
+      <ImageView fx:id="crearSorteigBtn" fitHeight="119.0" fitWidth="396.0" layoutX="122.0" layoutY="378.0" onMouseClicked="#crearSorteig" pickOnBounds="true" preserveRatio="true" visible="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@imatges/crearSorteig_button.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="dataSorteig_label" layoutX="205.0" layoutY="164.0" text="Tria una data:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="triarData_date" editable="false" layoutX="303.0" layoutY="162.0" prefHeight="25.0" prefWidth="181.0" visible="false" />
+      <Label fx:id="sorteigRealitzar_label" layoutX="179.0" layoutY="164.0" text="Sorteig a realitzar:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="sorteigRealitzar_button" layoutX="303.0" layoutY="160.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="25.0" prefWidth="181.0" text="Sorteigs..." visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <Label fx:id="consultarSorteigCobrat_label" layoutX="85.0" layoutY="164.0" text="Sorteig a consultar si s'ha cobrat:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="consultarSorteigCobrat_button" layoutX="303.0" layoutY="159.0" mnemonicParsing="false" onAction="#triarSorteigCobrat" prefHeight="25.0" prefWidth="181.0" text="Sorteigs..." visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <Label fx:id="estadistiquesSorteig_label" layoutX="135.0" layoutY="154.0" text="Estadístiques del Sorteig:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="estadistiquesSorteig_button" layoutX="303.0" layoutY="149.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="Sorteigs..." visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <Label fx:id="quantitatApostes_label" layoutX="282.0" layoutY="220.0" text="Quantitat d'Apostes:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantitatApostesPremiades_label" layoutX="213.0" layoutY="250.0" text="Quantitat d'Apostes Premiades:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="quantitatApostesReintegrament_label" layoutX="156.0" layoutY="280.0" text="Quantitat d'Apostes amb Reintegrament:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+    </AnchorPane>
+</VBox>

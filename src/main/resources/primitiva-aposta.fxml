@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ApostaController">
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <ImageView fx:id="aposta_title" fitHeight="100.0" fitWidth="376.0" layoutX="132.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@imatges/aposta_title.png" />
+        </ImageView>
+      <MenuButton fx:id="triarData" layoutX="298.0" layoutY="110.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="25.0" prefWidth="181.0" text="Tria una data">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <MenuButton fx:id="triarTipus" layoutX="298.0" layoutY="158.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="25.0" prefWidth="181.0" text="Tria un tipus">
+         <items>
+            <MenuItem fx:id="combinacioAleatoria_item" mnemonicParsing="false" onAction="#triarCombinacioAleatoria" text="Combinació Aleatòria" />
+            <MenuItem fx:id="combinacioCopia_item" mnemonicParsing="false" onAction="#triarCombinacioCopia" text="Combinació Còpia" />
+            <MenuItem fx:id="combinacio6Enters_item" mnemonicParsing="false" onAction="#triarCombinacio6Enters" text="Combinació de 6 enters" />
+         </items>
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <ImageView fx:id="afegirApostaBtn" fitHeight="119.0" fitWidth="396.0" layoutX="122.0" layoutY="353.0" onMouseClicked="#afegirAposta" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <image>
+            <Image url="@imatges/afegirAposta_button.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="combinacio_label" layoutX="188.0" layoutY="215.0" text="Combinació:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="combinacio_textfield" layoutX="272.0" layoutY="210.0" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font></TextField>
+      <Button fx:id="generarCombinacio_button" layoutX="459.0" layoutY="210.0" mnemonicParsing="false" onAction="#generarCombinacioAleatoria" text="Generar" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="reintegrament_label" layoutX="132.0" layoutY="262.0" text="Nº de Reintegrament:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="reintegrament_textfield" layoutX="272.0" layoutY="257.0" prefHeight="30.0" prefWidth="30.0" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </TextField>
+      <CheckBox fx:id="reintegrament_checkbox" layoutX="320.0" layoutY="262.0" mnemonicParsing="false" onAction="#reintegramentChecked" selected="true" text="Utilitzar Reintegrament" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="sorteigAnterior_label" layoutX="188.0" layoutY="215.0" text="Tria un Sorteig existent:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="idAposta_label" layoutX="246.0" layoutY="262.0" text="ID de l'Aposta:" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <MenuButton fx:id="sorteigAnterior_button" layoutX="345.0" layoutY="210.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="181.0" text="Sorteigs existents..." visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <MenuButton fx:id="idAposta_button" disable="true" layoutX="344.0" layoutY="257.0" mnemonicParsing="false" popupSide="RIGHT" prefHeight="30.0" prefWidth="120.0" text="IDs..." visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </MenuButton>
+      <Label fx:id="sorteig_label" layoutX="234.0" layoutY="115.0" text="Sorteig:">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="tipusCombinacio_label" layoutX="148.0" layoutY="163.0" text="Tipus de Combinació:">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="returnMenuBtn" fitHeight="57.0" fitWidth="67.0" layoutX="14.0" layoutY="409.0" onMouseClicked="#tornarMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imatges/returnMenu_button.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label fx:id="emptySorteigs_label" layoutX="198.0" layoutY="446.0" text="⚠ Llista de Sorteigs no realitzats buida." textFill="RED" visible="false">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+    </AnchorPane>
+</VBox>
